@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-
 @Entity
 @Table(name="books")
 public class Book {
@@ -17,7 +16,6 @@ public class Book {
     @GeneratedValue(strategy = (GenerationType.AUTO))
     @Column(name = "book_id")
     public int id;
-
 
     public String title;
     public String author;
@@ -29,7 +27,6 @@ public class Book {
         this.author = author;
     }
     
-
     public Book() {
     }
 
