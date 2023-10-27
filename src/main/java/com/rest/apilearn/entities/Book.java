@@ -1,10 +1,12 @@
 package com.rest.apilearn.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -15,13 +17,15 @@ public class Book {
     @Id
     @GeneratedValue(strategy = (GenerationType.AUTO))
     @Column(name = "book_id")
-    public int id;
+    private int id;
 
-    public String title;
-    public String author;
+    private String title;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    private Author author;
     
     // constructors
-    public Book(int id, String title, String author) {
+    public Book(int id, String title, Author author) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -44,10 +48,10 @@ public class Book {
     public void setTitle(String title) {
         this.title = title;
     }
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
     
